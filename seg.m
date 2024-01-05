@@ -1,4 +1,4 @@
-function label = seg(image, sigma, min_size, K)
+function [label,numLabels] = seg(image, sigma, min_size, K)
 % Segment given image into super-pixels.
 % Input:
 %   image:     [M * N * 3, REQ] images to be segmented
@@ -9,3 +9,4 @@ function label = seg(image, sigma, min_size, K)
 %   label:     [M * N] super-pixel label for each pixel
 
 label = segment(double(image), sigma, min_size, K);
+numLabels = max(label(:));
